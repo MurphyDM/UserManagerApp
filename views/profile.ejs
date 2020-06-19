@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="Task#4 itransition iLearning" />
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/users_page.css">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                            <a class="logo" href="#"><img src="img/logo.png"></a>
+                        </div>
+                        <div class="col-lg-11 col-md-11 col-sm-11 col-11">
+                            <ul class="menu d-flex justify-content-end">
+                                <li class="menu-item">
+                                    <a href="/signout">
+                                         Sign out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </header>
+    <section class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h2>User Management</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="d-flex justify-content-end" id="toolbar">
+                        <a class="tool" href="#"><img src="img/lock.png" id="lock-button" title="Block" alt="block icon"></a>
+                        <a class="tool" href="#"><img src="img/unlock.png" id="unlock-button" title="Unblock" alt="unblock icon"></a>
+                        <a class="tool" href="#"><img src="img/delete.png" id="delete-button" title="Delete" alt="delete icon"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="table-wrapper d-flex justify-content-center">
+                        <table class="table table-striped table-dark">
+                            <caption>List of users</caption>
+                            <thead>
+                                <tr>
+                                    <td class="column-header">
+                                        <input type="checkbox" class="checkbox-button" id="main-checkbox" unchecked>
+                                    </td>
+                                    <td class="column-header">id</td>
+                                    <td class="column-header">Name</td>
+                                    <td class="column-header">E-mail</td>
+                                    <td class="column-header">Sign up date</td>
+                                    <td class="column-header">Last sign in date</td>
+                                    <td class="column-header">Status</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(let i = start; i <end && i<Object.keys(users).length; i++) { %>
+                                    <tr>
+                                        <td>
+                                            <% let identifier = ""; identifier += users[i].id; %>
+                                                <input type="checkbox" id=<%=identifier %> class="checkbox-button" unchecked>
+                                        </td>
+                                        <td>
+                                            <%= users[i].id %><br> </td>
+                                        <td>
+                                            <%= users[i].name %><br> </td>
+                                        <td>
+                                            <%= users[i].email %>
+                                        </td>
+                                        <td>
+                                            <%= users[i].sign_up_date %>
+                                        </td>
+                                        <td>
+                                            <%= users[i].last_sign_in_date %>
+                                        </td>
+                                        <td>
+                                            <%= users[i].status %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <% } %>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="table-wrapper d-flex justify-content-center">
+                        <% if (start > 0 ) { %>
+                            <form action="/profile/prev" method="get">
+                                <button type="prev" class="btn btn-warning btn-lg" id="prev-button"><strong>Prev</strong></button>
+                            </form>
+                            <% } %>
+                                <% if (end < Object.keys(users).length ) { %>
+                                    <form action="/profile/next" method="get">
+                                        <button type="next" class="btn btn-warning btn-lg" id="next-button"><strong>Next</strong></button>
+                                    </form>
+                                    <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

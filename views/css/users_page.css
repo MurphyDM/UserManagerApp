@@ -1,0 +1,65 @@
+section.main {
+    background-color: #e7edee;
+    height: 100vh;
+}
+
+section.main .container {
+    background-color: #e7edee;
+    height: 100vh;
+}
+
+section.main h2 {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+    margin-top: 13vh;
+    text-align: center;
+    color: #4a5355;
+}
+
+section.main #toolbar {
+    margin: 1vh 0vw 3vh 0vw;
+}
+
+section.main #toolbar img {
+    width: 1.5vw;
+    margin-right: 3vw;
+    margin-bottom: 1.5vh;
+}
+
+section.main table caption {
+    padding-bottom: 0;
+}
+
+section.main .toolbar a:hover img {
+    width: 2vw;
+    margin-right: 2.5vw;
+    margin-bottom: 0.2vh;
+    transition: all 0.1s ease;
+}
+
+section.main .table-wrapper table {
+    text-align: center;
+}
+
+section.main .table-wrapper table td {
+    padding: 1vh 3vw 1vh 3vw;
+    font-size: 1vw;
+    color: rgb(183, 221, 223);
+}
+
+section.main .table-wrapper table td.column-header {
+    font-weight: 700;
+}
+
+#next-button,
+#prev-button {
+    background-color: #d4d4d4;
+    /* Green */
+    border: none;
+    color: rgb(0, 0, 0);
+    margin-right: 0.2vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+}

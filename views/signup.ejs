@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="Task#4 itransition iLearning" />
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                            <a class="logo" href="#"><img src="img/logo.png"></a>
+                        </div>
+                        <div class="col-lg-11 col-md-11 col-sm-11 col-11">
+                            <ul class="menu d-flex justify-content-end">
+                                <li class="menu-item">
+                                    <a href="/">
+                                        Main
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/signin">
+                                        Sign in
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="active" href="/signup">
+                                         Sign up
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </header>
+    <section class="main">
+        <div class="container">
+            <div class="col-lg-4 col-md-4 col-sm-1- col-1"></div>
+
+            <div class="col-lg-6 col-md-6 col-sm-10 col-10">
+                <div class="form-wrapper">
+
+                    <% if (message.length > 0) { %>
+                        <div class="alert alert-danger">
+                            <%= message %>
+                        </div>
+                        <% } %>
+
+                            <form id="signup" action="/signup" method="post">
+                                <h1>create an account</h1>
+                                <input name="username" type="text" placeholder="Username" autofocus="autofocus" required="required" class="input pass" />
+                                <input name="email" type="email" placeholder="E-mail" class="input pass" />
+                                <input name="password" type="password" placeholder="Password" required="required" class="input pass" />
+                                <input type="submit" value="Sign me up!" class="inputButton" />
+                                <div class="text-center">
+                                    already have an account? <a href="/signin" id="login_id">Sign in</a>
+                                </div>
+                            </form>
+                </div>
+            </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+section.main {
+    background-color: #d6f4fa;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+section.main h1 {
+    font-family: 'Baloo Thambi 2', cursive;
+    margin-top: 46vh;
+    text-align: center;
+    font-weight: 400;
+    color: #4a5355;
+}
