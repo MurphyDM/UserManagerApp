@@ -18,5 +18,5 @@ JavaScript, HTML(EJS templates), CSS
 
 Heroku
 
-Link: https://immense-lake-19823.herokuapp.com/
+Link: https://user-manager-appl.herokuapp.com/
 
