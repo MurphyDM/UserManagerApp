@@ -7,12 +7,9 @@ window.onload = function() {
         unlockButton = document.getElementById('unlock-button'),
         tools = document.getElementsByClassName('tool');
 
-    async function buildGetAPI(url, method) {
+    async function buildGetAPI(url) {
         const response = fetch(url, {
-                method: method,
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                }
+                method: 'GET'
             })
             .then((res) => {
                 return res.json();
@@ -25,9 +22,9 @@ window.onload = function() {
         return response;
     }
 
-    async function buildPostAPI(url, method, data) {
+    async function buildPostAPI(url, data) {
         const response = fetch(url, {
-                method: method,
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
@@ -60,22 +57,9 @@ window.onload = function() {
         return checkUsers;
     }
 
-    let disableToolbar = () => {
-        if (tools)
-            for (let tool of tools) {
-                tool.style.display = "none";
-            }
-    }
-
-    let checkStatus = (status) => {
-        if (status == "blocked") disableToolbar();
-    }
-
     let timerId = setInterval(() => {
-        buildGetAPI('/status', 'GET', '').then(data => {
-            checkStatus(data);
-        });
-    }, 1000);
+        buildPostAPI('/userblocked', "blocked");
+    }, 2000);
 
     if (mainCheckbox) mainCheckbox.addEventListener('click', (event) => {
         checkAll();
@@ -83,25 +67,21 @@ window.onload = function() {
 
     if (deleteButton) deleteButton.addEventListener('click', (event) => {
         let checkUsers = getCheckUsers();
-        buildPostAPI('/client/delete', 'POST', checkUsers);
+        buildPostAPI('/client/delete', checkUsers);
         document.location.reload();
 
     });
 
     if (lockButton) lockButton.addEventListener('click', (event) => {
         let checkUsers = getCheckUsers();
-        buildPostAPI('/client/lock', 'POST', checkUsers);
+        buildPostAPI('/client/lock', checkUsers);
         document.location.reload();
     });
 
     if (unlockButton) unlockButton.addEventListener('click', (event) => {
         let checkUsers = getCheckUsers();
-        buildPostAPI('/client/unlock', 'POST', checkUsers);
+        buildPostAPI('/client/unlock', checkUsers);
         document.location.reload();
     });
-
-
-
-
 
 }

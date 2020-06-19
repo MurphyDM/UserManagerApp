@@ -11,6 +11,10 @@ module.exports = function(app, passport, usersInfo) {
         res.redirect('/');
     }
 
+    function isBlocked(req, res, next) {
+        userInfo.isBlocked(req, res, next);
+    }
+
     function setLastSigninDate(req, res, next) {
         usersInfo.setLastSigninDate(req);
         return next();
@@ -30,7 +34,7 @@ module.exports = function(app, passport, usersInfo) {
         res.render('signup.ejs', { message: req.flash('signupMessage') });
     });
 
-    app.get('/profile', isLoggedIn, setLastSigninDate, function(req, res) {
+    app.get('/profile', isLoggedIn, isBlocked, setLastSigninDate, function(req, res) {
         let start = CURRENT_PAGE * MAX_NUMBER_USERS_ON_PAGE;
         let end = start + MAX_NUMBER_USERS_ON_PAGE;
         usersInfo.getUsersInfo(res, start, end);
@@ -49,12 +53,9 @@ module.exports = function(app, passport, usersInfo) {
     });
 
     app.get('/signout', function(req, res) {
+        console.log('SIGNOUT', req)
         req.logout();
         res.redirect('/');
-    });
-
-    app.get('/status', function(req, res) {
-        usersInfo.getStatus(req, res);
     });
 
     app.post('/signin', passport.authenticate('local-signin', {
@@ -80,6 +81,8 @@ module.exports = function(app, passport, usersInfo) {
             res.redirect('/');
         }
     );
+
+    app.post('/userblocked', isBlocked, function(req, res) {});
 
     app.post('/client/delete', function(req, res) {
         usersInfo.deleteUser(req.body, req);

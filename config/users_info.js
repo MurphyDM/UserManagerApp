@@ -16,10 +16,14 @@ function getUsersInfo(res, start, end) {
     })
 }
 
-function getStatus(req, res) {
+function isBlocked(req, res, next) {
     connection.query("SELECT status FROM users WHERE id = ?", [req.user.id], function(err, status) {
         if (err) return err;
-        res.json(status[0]["status"]);
+        if (status[0]["status"] == 'blocked') {
+            req.flash('loginMessage', 'You are blocked.')
+            res.redirect('/signin');
+        }
+        return next();
     });
 }
 
@@ -56,5 +60,5 @@ module.exports = {
     changeUserStatus,
     deleteUser,
     setLastSigninDate,
-    getStatus
+    isBlocked
 }
