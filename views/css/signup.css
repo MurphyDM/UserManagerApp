@@ -82,3 +82,10 @@ section.main .inputButton:active {
 section.main .inputButton:focus {
     outline: none;
 }
+
+@media all and (max-width:720px) {
+    section.main .form-wrapper {
+        margin-top: 25vh;
+        width: 80vw;
+    }
+}

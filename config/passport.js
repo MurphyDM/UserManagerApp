@@ -1,12 +1,10 @@
 var LocalStrategy = require('passport-local').Strategy;
 var CustomStrategy = require('passport-custom').Strategy;
-
 var mysql = require('mysql2');
 var dbconfig = require('./database');
 var connection = mysql.createConnection(dbconfig.connection);
 
 const date = require('./date');
-
 connection.query('USE ' + dbconfig.database);
 
 module.exports = function(passport) {

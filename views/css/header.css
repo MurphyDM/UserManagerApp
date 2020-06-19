@@ -54,3 +54,9 @@ header hr {
     margin-bottom: 0;
     width: 100%;
 }
+
+@media all and (max-width:720px) {
+    header .menu .menu-item a {
+        font-size: 15px;
+    }
+}

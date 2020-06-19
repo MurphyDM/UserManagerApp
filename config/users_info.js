@@ -2,7 +2,6 @@ var mysql = require('mysql2');
 var dbconfig = require('./database');
 const date = require('./date');
 var connection = mysql.createConnection(dbconfig.connection);
-let isActive = true;
 connection.query('USE ' + dbconfig.database);
 
 function getUsersInfo(res, start, end) {

@@ -16,11 +16,6 @@ module.exports = function(app, passport, usersInfo) {
         return next();
     }
 
-    function setCurrentPage(req, res, next) {
-        CURRENT_PAGE = 0;
-        return next();
-    }
-
     app.get('/', function(req, res) {
         res.render('index.ejs');
     });
