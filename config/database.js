@@ -1,10 +1,10 @@
 module.exports = {
     'connection': {
         'host': 'd9c88q3e09w6fdb2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        'user': 'iwkvuois79m0c15k',
-        'password': 'uwgu22wfcm8ll5if',
+        'user': 'p0qrka4yi6779dt9',
+        'password': 'x16pi9379hfknlwl',
         'port': '3306'
     },
-    'database': 'zrbwozjbdih69be1',
+    'database': 'df0r79uq0neadtvy',
     'users_table': 'users'
 };
