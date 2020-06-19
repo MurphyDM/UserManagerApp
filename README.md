@@ -7,9 +7,7 @@ Programming language: JavaScript
 
 ### Server
 
-Platform: Node.js
-
-Frameworks and modules: express.js, passport.js(local and custom strategies)
+Frameworks and modules: node.js, express.js, passport.js(local and custom strategies)
 
 Database: MySQL
 
@@ -20,5 +18,5 @@ JavaScript, HTML(EJS templates), CSS
 
 Heroku
 
-Link: https://immense-lake-19823.herokuapp.com/
+Link: https://user-manager-appl.herokuapp.com/
 
